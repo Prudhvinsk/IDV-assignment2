@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Critique and Recommendations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0 40px;
+            color: #333;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        header img {
+            max-height: 60px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2.5em;
+            font-weight: 800;
+        }
+        h2, h3 {
+            font-weight: 700;
+            color: #333;
+        }
+        h2 {
+            font-size: 1.45em;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        h3 {
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            margin: 50px auto;
+            max-width: 1200px;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .content {
+            flex: 1.5;
+        }
+        .image-container {
+            padding-top: 80px;
+            flex: 1.25;
+        }
+        .image-container img {
+            width: 100%;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        ul {
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .highlight {
+            background-color: #e0f7f9;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            color: #333;
+        }
+        strong.term {
+            color: #007b83;
+            font-weight: 700;
+        }
+        footer {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+            margin-top: 60px;
+            border-top: 1px solid #eaeaea;
+            font-weight: 600;
+        }
+    </style>
+    <script>
+        function openImageModal(imageUrl) {
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            modal.style.display = 'flex';
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+            modal.innerHTML = `<img src="${imageUrl}" style="max-width: 90%; max-height: 90%; border-radius: 12px;">`;
+            modal.onclick = () => document.body.removeChild(modal);
+            document.body.appendChild(modal);
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <img src="https://www.sutd.edu.sg/wp-content/uploads/2024/10/SUTDLogo_Dark@2x.png" alt="SUTD Logo">
+</header>
+
+<h1>Data Visualization Critique and Recommendations</h1>
+
+<div class="container">
+    <div class="content">
+        <!-- Full Visualization 1 content: all data issues, idiom issues, and suggestions inserted here exactly as provided -->
+        <h2>Visualization 1:"World's Busiest Airports in 2022"</h2>
+        <a href="https://www.voronoiapp.com/other/The-Worlds-Busiest-Airports-by-Passenger-Count-49" target="_blank">View Source: Voronoi Visualization</a>
+
+        <h3>Data Issues:</h3>
+        <ul>
+            <li><span class="highlight">Incomplete Context:</span> The data shows the busiest airports by passenger count but fails to distinguish between <strong.term style="color:teal; font-weight:bold;">domestic and international travelers</strong.term>. This omission can mislead viewers about an airport’s global significance. A breakdown by <strong.term style="color:teal; font-weight:bold;">traveler type</strong.term> would provide clearer insights into international connectivity.</li>
+            <li><span class="highlight">Skewed Representation:</span> The chart ignores regional <strong.term style="color:teal; font-weight:bold;">population density and airport capacity</strong.term>. High passenger volumes in densely populated areas do not necessarily reflect <strong.term style="color:teal; font-weight:bold;">infrastructure quality</strong.term>. Including capacity utilization or regional context would offer a more balanced interpretation.</li>
+        </ul>
+
+        <h3>Idiom Issues:</h3>
+        <ul>
+            <li><span class="highlight">Confusing Dual Encoding:</span> Passenger numbers are shown with both <strong.term style="color:teal; font-weight:bold;">exact figures and dot representations</strong.term> (each dot = 1 million passengers). This redundant encoding adds unnecessary complexity and distracts from straightforward comparisons.</li>
+            <li><span class="highlight">Unclear Color Usage:</span> Bright colors are used to indicate rankings or regions <strong.term style="color:teal; font-weight:bold;">without a clear hierarchy or legend</strong.term>, potentially causing misinterpretation. A structured color scheme with clear labels would enhance understanding.</li>
+            <li><span class="highlight">Chartjunk:</span> Decorative icons and embellishments <strong.term style="color:teal; font-weight:bold;">clutter the visualization</strong.term>, detracting from the data. Removing these distractions would help keep the focus on the core message.</li>
+        </ul>
+
+        <h3><strong>Suggestions for Improvement:</strong></h3>
+        <ul>
+            <li><strong>Use Clean Bar or Column Charts:</strong> Opt for horizontal bar charts to allow direct comparison and emphasize exact values in a straightforward format.</li>
+            <li><strong>Establish Clear Color Coding:</strong> Assign color schemes based on categories (region or domestic/international status) and include a simple legend to reinforce understanding.</li>
+            <li><strong>Reduce Clutter:</strong> Minimize background illustrations and large icons. Focus on clean, balanced spacing that draws attention to the ranking and key numbers.</li>
+            <li><strong>Incorporate Key Annotations and Headlines:</strong> Use concise annotations to highlight notable trends (such as airports with the fastest recovery) to add narrative depth and engagement.</li>
+            <li><strong>Highlight Top Performers Visually:</strong> Make the top airports stand out with bold fonts, larger figures, or distinct framing to guide viewer focus effectively.</li>
+        </ul>
+    </div>
+    <div class="image-container">
+        <img src="https://www.voronoiapp.com/_next/image?url=https%3A%2F%2Fcdn.voronoiapp.com%2Fpublic%2Fimages%2Fvoronoi-The-Worlds-Busiest-Airports-by-Passenger-Count-20240510125718.webp&w=1200&q=85" alt="Voronoi Visualization Image" onclick="openImageModal('https://www.voronoiapp.com/_next/image?url=https%3A%2F%2Fcdn.voronoiapp.com%2Fpublic%2Fimages%2Fvoronoi-The-Worlds-Busiest-Airports-by-Passenger-Count-20240510125718.webp&w=1200&q=85')">
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+        <!-- Full Visualization 2 content inserted below -->
+        <h2>Visualization 2: "Top 100 Most Valuable Brands in 2023"</h2>
+        <a href="https://www.visualcapitalist.com/top-100-brand-value-2023/" target="_blank">View Source: Visual Capitalist</a>
+
+        <h3>Data Issues:</h3>
+        <ul>
+            <li><span class="highlight">Relative vs. Absolute Growth Confusion:</span> The visualization focuses on percentage growth without showing base values, which can <strong.term style="color:teal; font-weight:bold;">mislead viewers into overestimating</strong.term>    the significance of certain growth figures. Displaying both metrics would provide fuller context and prevent misinterpretation.</li>
+            <li><span class="highlight">Data Aggregation Without Clear Structure:</span> <strong.term style="color:teal; font-weight:bold;">Mixing sectors</strong.term> like tech, retail, and food brands in a single visualization without <strong.term style="color:teal; font-weight:bold;">segmentation</strong.term> makes comparative analysis challenging. Categorization is necessary for understanding inter-industry dynamics.</li>
+        </ul>
+
+        <h3>Idiom Issues:</h3>
+        <ul>
+            <li><span class="highlight">Bubble Chart Limitations:</span> Using bubble areas to represent values can <strong.term style="color:teal; font-weight:bold;">distort perception</strong.term> and <strong.term style="color:teal; font-weight:bold;">exaggerate differences</strong.term>, especially for brands with close figures. This reduces accuracy in comparative assessment.</li>
+            <li><span class="highlight">Complex Legend and Lack of Visual Hierarchy:</span> The <strong.term style="color:teal; font-weight:bold;">legend is unintuitive</strong.term>, requiring constant reference, and the design lacks a clear focal point. This makes it <strong.term style="color:teal; font-weight:bold;">hard to interpret</strong.term> key takeaways quickly.</li>
+            <li><span class="highlight">Clutter and Overlapping Bubbles:</span> <strong.term style="color:teal; font-weight:bold;">Bubbles overlap</strong.term>, obscuring smaller brands and making the layout <strong.term style="color:teal; font-weight:bold;">dense and confusing</strong.term>. This compromises the clarity and usefulness of the visualization.</li>
+        </ul>
+
+        <h3><strong>Suggestions for Improvement:</strong></h3>
+        <ul>
+            <li><strong>Replace with Sorted Bar Charts or Small Multiples:</strong> A clean bar chart or small multiple layout by industry would enhance readability and comparative understanding.</li>
+            <li><strong>Clear Sector Groupings:</strong> Color-code and visually separate industries with labeled group headings for quick navigation and comprehension.</li>
+            <li><strong>Highlight Key Brands and Changes:</strong> Draw attention to top brands or key changes with callouts or annotations that add storytelling value.</li>
+            <li><strong>Maintain Clear Visual Spacing:</strong> Maintain clear spacing between elements to reduce clutter and increase readability.</li>
+            <li><strong>Emphasize Simplicity and Hierarchy:</strong> Use typography, font size, and strategic spacing to emphasize key data points and ensure the poster remains visually approachable.</li>
+        </ul>
+    </div>
+    <div class="image-container">
+        <img src="https://www.visualcapitalist.com/wp-content/uploads/2023/07/Top_100_Most_Valuable_Brands_2023.jpeg" alt="Top Brands Visualization Image" onclick="openImageModal('https://www.visualcapitalist.com/wp-content/uploads/2023/07/Top_100_Most_Valuable_Brands_2023.jpeg')">
+    </div>
+</div>
+<footer>
+    <p>Ravi Prudhvi Naga Sai Kumar - 1009460</p>
+    <p>Master of Science in Urban Science, Policy and Planning</p>
+</footer>
